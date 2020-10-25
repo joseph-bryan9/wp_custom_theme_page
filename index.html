@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dolman LawGroup </title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Navigation Menu -->
     <header>
-        <div class="grid">
+        <div class="grid-header">
             <nav>
                 <ul>
                     <li><a href="">home</a></li>
@@ -17,7 +17,7 @@
                     <li><a href="">contact us</a></li>
                 </ul>
             </nav>
-            <div class="flex">
+            <div class="flex-header">
                 <div class="logo"></div>
                 <div class="burger-menu">
                     <!-- Navigation links (hidden by default) -->
@@ -30,8 +30,8 @@
                         <a href="#">blog</a>
                     </div>
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
+                    <a href="javascript:void(0);" class="burger" onclick="myFunction()">
+                        <div class="burger-line"></div>
                         <p>menu</p>
                     </a>
                 </div>
@@ -40,17 +40,17 @@
     </header>
 
     <!-- Tap To Call Section -->
-    <section>
-        <span>tap to call</span>
+    <section class="tap-to-call">
+        <i>tap to call:</i>
         <a href="#">727-451-6900</a>
     </section>
 
     <!-- Hero Section -->
-    <section>
+    <section class="hero-section">
         <div class="hero-flex">
             <button>play button</button>
-            <p>big firm results</p>
-            <p>with small firm personal attention</p>
+            <p class=hero-p1>big firm results</p>
+            <p class=hero-p2>with small firm personal attention</p>
             <a href="#">free case consultation</a>
         </div>
     </section>
