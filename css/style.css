@@ -309,7 +309,7 @@ header {
 }
 
 .case-category-section .grid-case-category div:nth-child(odd) {
-  border-right: 1px solid black;
+  border-right: 1px solid #ccc;
 }
 
 .case-category-section .grid-case-category * {
@@ -370,10 +370,11 @@ header {
 }
 
 .attorneys-section .grid-attorneys-section .grid-attorneys .attorney-container img {
-  width: 100%;
+  width: 127px;
 }
 
 .attorneys-section .grid-attorneys-section .grid-attorneys .attorney-container .arrow {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   background: #e10f0f;
   width: 30px;
   height: 30px;
@@ -382,8 +383,220 @@ header {
   right: 0;
 }
 
+.attorneys-section .grid-attorneys-section .grid-attorneys .attorney-container .arrow .svg {
+  background: url("/assets/images/right-arrow.svg") no-repeat center center/contain;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(181deg) brightness(112%) contrast(100%);
+  width: 14px;
+  height: 40px;
+  right: 2px;
+  position: absolute;
+}
+
 .attorneys-section .grid-attorneys-section .grid-attorneys p {
   text-transform: capitalize;
   text-align: center;
   line-height: 1.3;
+}
+
+.testimonial-section {
+  padding: 3rem 1rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-section * {
+  background: #fff;
+}
+
+.testimonial-section p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  margin: 1rem 0;
+}
+
+.testimonial-section .flex-rating {
+  display: flex;
+  flex-direction: row;
+}
+
+.testimonial-section .flex-rating img {
+  width: 25px;
+  margin: 0 0.2rem;
+}
+
+.testimonial-section i {
+  margin: 1rem 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.testimonial-section a {
+  padding: 0.7rem 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  background: #e5e5e5;
+  color: #e10f0f;
+  display: block;
+  width: 220px;
+  margin: 1.5rem auto;
+  border-radius: 30px;
+}
+
+.grid-blog {
+  padding-top: 3rem;
+  display: grid;
+}
+
+.grid-blog .blog-list {
+  padding: 0 1rem;
+}
+
+.grid-blog .blog-list p {
+  text-transform: uppercase;
+  color: #e10f0f;
+  font-size: 1.3rem;
+  margin: 1.3rem auto;
+}
+
+.grid-blog ul {
+  padding-bottom: 1rem;
+}
+
+.grid-blog ul li {
+  padding: 0.7rem 0;
+}
+
+.grid-blog ul li .svg {
+  background: url("/assets/images/right-arrow.svg") no-repeat center center/contain;
+  filter: invert(14%) sepia(53%) saturate(6907%) hue-rotate(354deg) brightness(98%) contrast(100%);
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  padding-left: 15px;
+}
+
+.grid-blog ul li:nth-child(even) {
+  border-top: 1px solid #dcd9d9;
+  border-bottom: 1px solid #dcd9d9;
+}
+
+.grid-blog .view-articles-btn {
+  text-transform: uppercase;
+  color: #e10f0f;
+  border-bottom: 3px solid #e10f0f;
+  padding: 2rem 0;
+  padding-bottom: 2rem;
+  padding-bottom: 0.3rem;
+}
+
+.grid-blog .podcast-hero-bg {
+  background: url("/assets/images/dolman_bg_hero-3.jpg") no-repeat center center/cover;
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.grid-blog .podcast-hero-bg .flex-podcast {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: transparent;
+}
+
+.grid-blog .podcast-hero-bg .flex-podcast img {
+  background: transparent;
+  margin: 0 1rem;
+}
+
+.grid-blog .podcast-hero-bg .flex-podcast p {
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+}
+
+.grid-blog .podcast-hero-bg .dolman-podcast-txt {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 1rem 0;
+  background: transparent;
+  color: #fff;
+}
+
+.grid-blog .podcast-hero-bg .episode-btn {
+  margin: 20px 0;
+  margin-bottom: 20px;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #fff;
+  background: #e10f0f;
+  padding: 1rem 1.3rem;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.scholarship-section {
+  padding: 3rem 1rem;
+  background: #fff;
+}
+
+.scholarship-section .flex-scholarship * {
+  background: #fff;
+}
+
+.scholarship-section .flex-scholarship .grid-scholarship {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.scholarship-section .flex-scholarship .grid-scholarship p {
+  text-transform: capitalize;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+}
+
+.scholarship-section .flex-scholarship .grid-scholarship div {
+  background: #e5e5e5;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  align-items: center;
+  transform: rotate(45deg);
+}
+
+.scholarship-section .flex-scholarship .grid-scholarship div img {
+  display: block;
+  margin: 0 auto;
+  background: #e5e5e5;
+  transform: rotate(-45deg);
+}
+
+.scholarship-section .flex-scholarship .dolman-scholarship-txt {
+  text-align: center;
+  margin: 1.5rem 0;
+  line-height: 1.8;
+}
+
+.scholarship-section .flex-scholarship .learn-more-btn {
+  text-transform: uppercase;
+  color: #e10f0f;
+  border-bottom: 3px solid #e10f0f;
+  padding-bottom: 2rem;
+  padding-bottom: 2rem;
+  padding-bottom: 0.3rem;
+  width: 105px;
+  display: block;
+  margin: 0 auto;
 }
