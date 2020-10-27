@@ -10,8 +10,11 @@ $FontBitter: "Bitter", serif;
 // Colors:
 $FontPrimary: #373737;
 $FontSecondary: #e10f0f;
-$BgPrimary: #e5e5e5;
+$BgPrimary: #f2f2f2;
 $BgSecondary: #5c5c5c;
+
+// Mediaqueries
+@import "mediaqueries";
 
 * {
   padding: 0;
@@ -38,11 +41,16 @@ header {
     padding-bottom: 1.5rem;
   }
 
-  nav > ul {
-    display: flex;
-    flex-direction: row;
-    text-transform: uppercase;
-    justify-content: space-evenly;
+  nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      text-transform: uppercase;
+      justify-content: space-evenly;
+    }
+    .nav-desktop {
+      display: none;
+    }
   }
 
   .flex-header {
@@ -58,14 +66,58 @@ header {
     }
 
     .burger-menu {
+      background: #fff;
+      height: 2vh;
+      width: 65px;
       #myLinks {
         display: none;
       }
 
       .burger {
-        background: #fff !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
+        padding-top: 1.5rem;
+        * {
+          background: #fff;
+        }
+        .burger-line {
+          background: black;
+          // display: inline-block;
+          position: relative;
+          height: 5px;
+          width: 30px;
+        }
+        .burger-line::before {
+          background: #000;
+          content: "";
+          position: absolute;
+          top: -10px;
+          left: 0;
+          width: 30px;
+          height: 5px;
+        }
+        .burger-line::after {
+          background: #000;
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 10px;
+          width: 30px;
+          height: 5px;
+        }
+        p {
+          text-align: center;
+          text-transform: uppercase;
+          margin: 0.5rem 0;
+        }
       }
     } //End of burger-menu
+
+    .nav-reach-out-section {
+      display: none;
+    }
   }
 }
 
@@ -104,12 +156,15 @@ header {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 
   .hero-flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    z-index: 1;
 
     button {
       display: none;
@@ -145,6 +200,14 @@ header {
   .hero-flex > * {
     background: transparent;
   }
+}
+
+.hero-section:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(89, 89, 89, 0.8);
 }
 
 // Accident Cases Reports Section
@@ -261,10 +324,18 @@ header {
 // Company Section
 .company-section {
   padding: 1rem;
+  position: relative;
+  z-index: 1;
 
-  p {
+  .company-section-p {
     color: $FontSecondary;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  .company-section-titles {
+    display: none;
   }
 
   .grid-company {
@@ -280,6 +351,16 @@ header {
       }
     }
   }
+}
+
+.company-section:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(242, 242, 242, 0.9);
 }
 
 //  Case Category Section
@@ -388,7 +469,8 @@ header {
       .attorney-container {
         position: relative;
         img {
-          width: 127px;
+          // width: 127px;
+          width: 100%;
         }
 
         .arrow {
@@ -524,11 +606,15 @@ header {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    position: relative;
+    z-index: 1;
     .flex-podcast {
       display: flex;
       flex-direction: row;
       justify-content: center;
       background: transparent;
+      position: relative;
+      z-index: 1;
       img {
         background: transparent;
         margin: 0 1rem;
@@ -546,6 +632,7 @@ header {
       text-align: center;
       margin: 1rem 0;
       background: transparent;
+      z-index: 1;
       color: #fff;
     }
     .episode-btn {
@@ -558,8 +645,18 @@ header {
       background: #e10f0f;
       padding: 1rem 1.3rem;
       letter-spacing: 1px;
+      z-index: 1;
       border-radius: 5px;
     }
+  }
+  .podcast-hero-bg:after {
+    content: "";
+    position: absolute;
+    top: 5;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -615,5 +712,868 @@ header {
       display: block;
       margin: 0 auto;
     }
+
+    .grid-dolman-app {
+      display: grid;
+      padding: 3rem 0;
+      position: relative;
+      z-index: 1;
+      p:nth-child(1) {
+        background: transparent;
+        text-transform: uppercase;
+        text-align: center;
+        color: #e10f0f;
+        font-size: 1.3rem;
+        margin: 1.3rem 1rem;
+        position: relative;
+        z-index: 1;
+      }
+      p:nth-child(2) {
+        background: transparent;
+        text-align: center;
+        line-height: 1.7;
+        margin: 1.3rem auto;
+        position: relative;
+        z-index: 1;
+        a {
+          text-transform: capitalize;
+          text-decoration: underline;
+          color: #e10f0f;
+          position: relative;
+          z-index: 1;
+        }
+      }
+      img {
+        margin: 1rem auto;
+        display: block;
+        width: 180px;
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .grid-dolman-app:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 90%;
+      // background: rgba(0, 0, 0, 0.3);
+      background: url("/assets/images/dolman_app_pattern-bg.png") no-repeat left
+        center/cover;
+      opacity: 0.1;
+    }
   }
+}
+
+// Location and Form Section
+.location-form-section {
+  padding: 3rem 0;
+  padding-bottom: 0;
+  .grid-location-form {
+    display: grid;
+    div {
+      text-align: center;
+      .select-office-txt {
+        color: #c51717;
+        font-family: $FontPlayfairDisplay;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 1rem 0;
+      }
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
+        background: #fff;
+        background-image: none;
+      }
+      /* Remove IE arrow */
+      select::-ms-expand {
+        display: none;
+      }
+      /* Custom Select */
+      .select {
+        position: relative;
+        display: flex;
+        width: 270px;
+        height: 3em;
+        line-height: 3;
+        background: #fff;
+        overflow: hidden;
+        border-radius: 0.25em;
+        margin: 1rem auto;
+        justify-content: center;
+      }
+      select {
+        flex: 1;
+        padding: 0 0.5em;
+        color: #000;
+        cursor: pointer;
+        option {
+          background: #fff;
+          text-transform: uppercase;
+        }
+      }
+      /* Arrow */
+      .select::after {
+        content: "\25BC";
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        background: #fff;
+        color: #000;
+        cursor: pointer;
+        pointer-events: none;
+        border-left: 1px solid #d8d8d8;
+      }
+      ul {
+        li {
+          padding: 0.3rem 0;
+        }
+      }
+      .flex-direction-hours {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 200px;
+        margin: 0 auto;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        .directions,
+        .hours {
+          text-transform: capitalize;
+          color: #e10f0f;
+          border-bottom: 1px solid #e10f0f;
+          // padding-bottom: 1px;
+          // width: 105px;
+          display: block;
+        }
+      }
+      .dolman-map {
+        width: 100%;
+        position: relative;
+      }
+      .dolman-location {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 4rem 0;
+      }
+      .social-links {
+        margin: 2rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+    .form {
+      padding: 3rem 1rem;
+      background: $FontSecondary;
+      text-align: center;
+      p:nth-child(1) {
+        text-transform: uppercase;
+        color: #fff;
+        width: 130px;
+        display: block;
+        margin: 0 auto;
+      }
+      p:nth-child(2) {
+        font-family: $FontPlayfairDisplay;
+        font-size: 1.8rem;
+        color: #fff;
+        margin: 1rem 0;
+      }
+      p,
+      form,
+      label {
+        background: $FontSecondary;
+      }
+      label {
+        text-align: left;
+        text-transform: capitalize;
+        color: #f0c3c3;
+        letter-spacing: 1px;
+        padding-bottom: 0.5rem;
+      }
+      label:nth-child(7) {
+        text-transform: unset;
+      }
+      input,
+      textarea {
+        background: #fff;
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        button {
+          margin: 20px 0;
+          font-size: 1rem;
+          text-transform: uppercase;
+          color: #000;
+          background: #fff;
+          padding: 1rem 1.3rem;
+          letter-spacing: 1px;
+          border-radius: 5px;
+          cursor: pointer;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  background: #fff;
+  padding: 2rem 1rem;
+  height: 30vh;
+  div {
+    background: #fff;
+    * {
+      background: #fff;
+      font-size: 0.6rem;
+      color: #b0b0b0;
+      text-align: center;
+    }
+    p:nth-child(1) {
+      letter-spacing: 1px;
+      margin: 0.7rem 0;
+    }
+    ul {
+      margin: 0.7rem 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-transform: capitalize;
+      li {
+        padding: 0 1rem;
+      }
+      li:nth-child(2) {
+        border-left: 1px solid #b0b0b0;
+        border-right: 1px solid #b0b0b0;
+      }
+      li:nth-child(3) {
+        border-right: 1px solid #b0b0b0;
+      }
+    }
+  }
+  p {
+    letter-spacing: 1px;
+    margin: 0.7rem 0;
+    line-height: 2;
+    background: #fff;
+    text-align: center;
+    font-size: 0.6rem;
+    color: #b0b0b0;
+  }
+}
+
+// Tablet Screen
+@include mediaQuery(768px) {
+  // Navigation Menu
+  .grid-header {
+    .flex-header {
+      justify-content: space-around;
+    }
+  }
+
+  // Hero Section
+  .hero-section {
+    background: url("/assets/images/dolman_bg_hero.jpg") no-repeat center
+      top/cover;
+  }
+
+  // Accident Cases Reports Section
+  .case-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    background: #fff;
+    .case-card:nth-child(2),
+    .case-card:nth-child(3) {
+      display: block;
+      align-self: center;
+      padding: 4.5rem 1rem;
+      p:nth-child(1),
+      .divider {
+        display: none;
+      }
+    }
+  }
+
+  // Main Section Grid
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    padding: 3rem 2rem;
+    div:nth-child(1) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 4;
+      align-self: center;
+    }
+    div:nth-child(2) {
+      grid-column: 1 / 3;
+    }
+    div:nth-child(3) {
+      grid-column: 2 / 3;
+      grid-row: 2/ 4;
+    }
+  }
+
+  // Company Section
+  .company-section {
+    padding: 3rem 2rem;
+    .company-section-p {
+      display: none;
+    }
+    .company-section-titles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+      z-index: 1;
+      p {
+        color: $FontSecondary;
+        text-transform: uppercase;
+      }
+    }
+    .grid-company {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      div {
+        align-self: center;
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // The Attorneys Section
+  .attorneys-section {
+    padding: 3rem 2rem;
+    .grid-attorneys-section {
+      .grid-attorneys {
+        grid-template-columns: repeat(4, 1fr);
+        .attorney-container {
+          img {
+            // width: 165px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // Testimonial Section
+  .testimonial-section {
+    padding: 3rem 2rem;
+  }
+
+  // Blog Section
+  .grid-blog {
+    .blog-list {
+      padding: 0 3rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  // Scholarship Section
+  .scholarship-section {
+    padding: 3rem 2rem;
+    .flex-scholarship {
+      .grid-dolman-scholarship-container {
+        padding: 4rem 2rem;
+      }
+      .grid-dolman-app {
+        padding: 3rem 2rem;
+      }
+    }
+  }
+
+  // Location and Form Section
+  .location-form-section {
+    padding: 0;
+    .grid-location-form {
+      grid-template-columns: repeat(2, 1fr);
+      div:nth-child(1) {
+        padding: 3rem 2rem;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        .dolman-location {
+          left: 75%;
+          transform: translateX(-75%);
+        }
+      }
+      .form {
+        padding: 3rem 2rem;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+
+  // Footer
+  footer {
+    ul {
+      justify-content: center;
+    }
+  }
+}
+
+// Laptop Screen
+@include mediaQuery(1280px) {
+  // Navigation Menu
+  .grid-header {
+    nav {
+      grid-column: 1;
+      grid-row: 2;
+      ul:nth-child(1) {
+        display: none;
+      }
+      .nav-desktop {
+        display: flex;
+        flex-direction: row;
+        text-transform: uppercase;
+        justify-content: space-evenly;
+        ul {
+          display: none;
+        }
+      }
+      .dropdown-1:hover {
+        position: relative;
+        .dropdown-content-1 {
+          display: flex;
+          flex-direction: column;
+          text-transform: capitalize;
+          justify-content: space-evenly;
+          position: absolute;
+          z-index: 2;
+          li {
+            padding: 0.5rem 1rem;
+            width: 130px;
+          }
+        }
+      }
+      .dropdown-2:hover {
+        .dropdown-content-2 {
+          display: flex;
+          flex-direction: column;
+          text-transform: capitalize;
+          justify-content: space-evenly;
+          position: absolute;
+          z-index: 2;
+          li {
+            padding: 0.5rem 1rem;
+            width: 130px;
+          }
+        }
+      }
+      .dropdown-3:hover {
+        .dropdown-content-3 {
+          display: flex;
+          flex-direction: column;
+          text-transform: capitalize;
+          justify-content: space-evenly;
+          position: absolute;
+          z-index: 2;
+          li {
+            padding: 0.5rem 1rem;
+            width: 130px;
+          }
+        }
+      }
+      .dropdown-4:hover {
+        .dropdown-content-4 {
+          display: flex;
+          flex-direction: column;
+          text-transform: capitalize;
+          justify-content: space-evenly;
+          position: absolute;
+          z-index: 2;
+          li {
+            padding: 0.5rem 1rem;
+            width: 130px;
+          }
+        }
+      }
+      .dropdown-5:hover {
+        .dropdown-content-5 {
+          display: flex;
+          flex-direction: column;
+          text-transform: capitalize;
+          position: absolute;
+          z-index: 2;
+          li {
+            padding: 0.5rem 1rem;
+            width: 130px;
+          }
+        }
+      }
+    }
+    .flex-header {
+      grid-column: 1;
+      grid-row: 1;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      .logo {
+        justify-self: start;
+      }
+      .burger-menu {
+        display: none;
+      }
+      .nav-reach-out-section {
+        justify-self: end;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        background: #fff;
+        .connect-live-btn,
+        .schedule-btn {
+          margin: 0 1rem;
+          width: 195px;
+          padding: 0.5rem 1rem;
+          display: flex;
+          align-self: center;
+          justify-content: center;
+          text-transform: capitalize;
+          border-radius: 20px;
+          img {
+            width: 15px;
+            height: 15px;
+            align-self: center;
+            margin-right: 10px;
+          }
+        }
+        .contact-no-text {
+          display: flex;
+          flex-direction: column;
+          width: 240px;
+          padding: 0.5rem;
+          margin: 0 1rem;
+          background: #fff;
+          p:nth-child(1) {
+            background: #fff;
+            padding-bottom: 0.3rem;
+          }
+          p:nth-child(2) {
+            background: #fff;
+            font-family: $FontBitter;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            color: $FontSecondary;
+          }
+        }
+      }
+    }
+  }
+
+  // Tap To Call Section
+  .tap-to-call {
+    display: none;
+  }
+
+  // Hero Section
+  .hero-section {
+    background: url("/assets/images/dolman_bg_hero.jpg") no-repeat center
+      center/cover;
+    height: 70vh;
+    align-items: center;
+    .hero-flex {
+      .hero-p1 {
+        font-size: 5rem;
+        margin: 0.5rem 0;
+      }
+      .hero-p2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  // Accident Cases Reports Section
+  .case-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    background: #fff;
+    .case-card:nth-child(2),
+    .case-card:nth-child(3),
+    .case-card:nth-child(4) {
+      display: block;
+      align-self: center;
+      padding: 4.5rem 1rem;
+      p:nth-child(1),
+      .divider {
+        display: none;
+      }
+    }
+  }
+
+  // Main Section Grid
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    padding: 3rem 0;
+    div:nth-child(1) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 4;
+      align-self: center;
+    }
+    div:nth-child(2) {
+      grid-column: 1 / 3;
+      padding-bottom: 1.5rem;
+    }
+    div:nth-child(3) {
+      grid-column: 2 / 3;
+      grid-row: 2/ 4;
+      padding: 0 2rem;
+      p,
+      a {
+        text-align: left !important;
+      }
+    }
+  }
+
+  // Company Section
+  .company-section {
+    padding: 3rem 2rem;
+    .company-section-p {
+      display: none;
+    }
+    .company-section-titles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+      z-index: 1;
+      p {
+        color: $FontSecondary;
+        text-transform: uppercase;
+      }
+    }
+    .grid-company {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      div {
+        align-self: center;
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Case Category Section
+  .case-category-section {
+    padding: 4rem 1rem;
+    p:nth-child(1) {
+      font-size: 2.1em;
+    }
+    .grid-case-category {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    div:nth-child(odd) {
+      border-right: none !important;
+    }
+  }
+
+  // The Attorneys Section
+  .attorneys-section {
+    padding: 3rem 2rem;
+    .grid-attorneys-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      div:nth-child(1) {
+        text-align: left;
+        align-self: center;
+        justify-self: center;
+        p:nth-child(1) {
+          font-size: 2.1em;
+        }
+        .divider {
+          margin: 1.5rem 0;
+        }
+        .our-attorneys {
+          width: 500px;
+        }
+      }
+      .grid-attorneys {
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 50px;
+        .attorney-container {
+          img {
+            // width: 165px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // Testimonial Section
+  .testimonial-section {
+    p:nth-child(1) {
+      font-size: 2.1em;
+    }
+    i {
+      width: 750px;
+      line-height: 2;
+    }
+  }
+
+  // Blog Section
+  .grid-blog {
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 0;
+    .blog-list {
+      padding: 3rem 5rem;
+      margin-bottom: 2rem;
+    }
+    .podcast-hero-bg {
+      margin-top: 0;
+    }
+  }
+
+  // Scholarship Section
+  .scholarship-section {
+    padding: 3rem 2rem;
+    .flex-scholarship {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background: #fff;
+      .grid-dolman-scholarship-container {
+        padding: 2rem 0;
+        align-self: center;
+        .grid-scholarship {
+          justify-items: start;
+          p {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+          }
+        }
+        p {
+          text-align: left;
+          margin-right: 10rem;
+        }
+        .learn-more-btn {
+          display: inline;
+          margin: 0;
+        }
+      }
+      .grid-dolman-app {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 15px;
+        padding: 9rem 2rem;
+        div:nth-child(1) {
+          grid-column: 2 / 3;
+          p:nth-child(1) {
+            text-align: left;
+            margin: 1.3rem 0;
+          }
+          p:nth-child(2) {
+            text-align: left;
+          }
+          a {
+            img {
+              width: 200px;
+            }
+          }
+        }
+        div:nth-child(2) {
+          grid-column: 1/ 2;
+          grid-row: 1;
+          img {
+            background: transparent;
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+
+  // Location and Form Section
+  .location-form-section {
+    padding: 0;
+    .grid-location-form {
+      grid-template-columns: repeat(2, 1fr);
+      div:nth-child(1) {
+        padding: 3rem 2rem;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        .select {
+          width: 350px;
+        }
+        .dolman-map {
+          width: 350px;
+        }
+        .dolman-location {
+          left: 75%;
+          transform: translateX(-75%);
+        }
+        .social-links {
+          margin: 2rem auto;
+          width: 330px;
+        }
+      }
+      .form {
+        padding: 3rem 2rem;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        input,
+        textarea,
+        label {
+          width: 470px;
+          display: block;
+          margin: 0 auto;
+          margin-bottom: 1rem;
+        }
+        button {
+          width: 270px;
+          display: block;
+          margin: 20px auto !important;
+        }
+      }
+    }
+  }
+
+  // Footer
+  footer {
+    height: 10vh;
+    p {
+      margin: 0;
+      text-align: left;
+      display: inline-block;
+    }
+    div {
+      display: inline-block;
+      ul {
+        justify-content: flex-start;
+      }
+    }
+    p:nth-child(2) {
+      display: block;
+    }
+  }
+}
+
+// 1440px Screen
+@include mediaQuery(1440px) {
 }
